@@ -1,36 +1,40 @@
-import { APP_BASE_HREF, registerLocaleData } from "@angular/common";
-import { LOCALE_ID, NgModule } from "@angular/core";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { BrowserModule } from "@angular/platform-browser";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
-import { NgBrazil, TextMask } from "ng-brazil";
-import { CustomFormsModule } from "ng2-validation";
+import { NgBrazil } from 'ng-brazil'
+import { TextMask } from 'ng-brazil';
+import { CustomFormsModule } from 'ng2-validation'
 
-import { AppComponent } from "./app.component";
+import { AppComponent } from './app.component';
+import { SobreComponent } from './institucional/sobre/sobre.component';
+import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.component';
+import { NavegacaoModule } from './navegacao/navegacao.module';
 
-import localePt from "@angular/common/locales/pt";
-import { AppRoutingModule } from "./app.routes";
-import { CadastroComponent } from "./demos/reactiveForms/cadastro/cadastro.component";
-import { SobreComponent } from "./institucional/sobre/sobre.component";
-import { NavegacaoModule } from "./navegacao/navegacao.module";
-registerLocaleData(localePt);
+import { AppRoutingModule } from './app.routes';
+import { AuthGuard } from './services/app.guard';
+import { CadastroGuard } from './services/cadastro.guard';
 
 @NgModule({
-  declarations: [AppComponent, SobreComponent, CadastroComponent],
+  declarations: [
+    AppComponent,
+    SobreComponent,
+    CadastroComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    NavegacaoModule,
     TextMask.TextMaskModule,
     NgBrazil,
     CustomFormsModule,
-    NavegacaoModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
   providers: [
-    { provide: APP_BASE_HREF, useValue: "/" },
-    { provide: LOCALE_ID, useValue: "pt-BR" },
+    AuthGuard,
+    CadastroGuard
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

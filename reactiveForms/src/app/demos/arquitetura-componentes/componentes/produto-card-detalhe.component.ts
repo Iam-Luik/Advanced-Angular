@@ -1,16 +1,22 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { Produto } from "../models/produto";
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Produto } from '../models/produto';
+
 
 @Component({
-  selector: "produto-card-detalhe",
-  templateUrl: "./produto-card-detalhe.component.html",
-})
-export class ProdutoDetalheComponent {
-  @Input() produto: Produto;
+    selector: 'produto-card-detalhe',
+    templateUrl: './produto-card-detalhe.component.html'
+  })
+  
+  export class ProdutoDetalheComponent { 
 
-  @Output() status: EventEmitter<any> = new EventEmitter();
+    @Input()
+    produto: Produto;
 
-  emitirEvento(){
-    this.status.emit(this.produto);
+    @Output()
+    status: EventEmitter<any> = new EventEmitter();
+
+    emitirEvento() {
+      this.status.emit(this.produto);
+    }
+    
   }
-} 
