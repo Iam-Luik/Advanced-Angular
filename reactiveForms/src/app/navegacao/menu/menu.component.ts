@@ -1,51 +1,53 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html'
+  selector: "app-menu",
+  templateUrl: "./menu.component.html",
 })
 export class MenuComponent {
-
   nav: Nav[] = [
     {
-      link: '/home',
-      name: 'Home',
+      link: "/home",
+      name: "Home",
       exact: true,
-      admin: false
+      admin: false,
     },
     {
-      link: '/cadastro',
-      name: 'Cadastro',
+      link: "/cadastro",
+      name: "Cadastro",
       exact: true,
-      admin: false
+      admin: false,
     },
     {
-      link: '/sobre',
-      name: 'Sobre',
+      link: "/sobre",
+      name: "Sobre",
       exact: true,
-      admin: false
+      admin: false,
     },
     {
-      link: '/produtos',
-      name: 'Produtos',
+      link: "/produtos",
+      name: "Produtos",
       exact: false,
-      admin: false
+      admin: false,
     },
     {
-      link: '/admin',
-      name: 'Admin',
+      link: "/admin",
+      name: "Admin",
       exact: false,
-      admin: false
-    }
+      admin: false,
+    },
+    {
+      link: "/filmes",
+      name: "Filmes",
+      exact: false,
+      admin: false,
+    },
   ];
-
 }
 
-
-
 interface Nav {
-  link: string,
-  name: string,
-  exact: boolean,
-  admin: boolean
+  link: string;
+  name: string;
+  exact: boolean;
+  admin: boolean;
 }
