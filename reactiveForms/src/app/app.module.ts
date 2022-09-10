@@ -16,6 +16,7 @@ import { BarServices } from "./demos/bar-di-zones/bar.service";
 import { AuthGuard } from "./services/app.guard";
 import { CadastroGuard } from "./services/cadastro.guard";
 import { HttpClientModule } from "@angular/common/http";
+import { TodoModule } from "./demos/todo-list/todo.module";
 
 export const BAR_PROVIDERS: Provider[] = [BarServices];
 
@@ -35,6 +36,7 @@ export const BAR_PROVIDERS: Provider[] = [BarServices];
       unidadeToken: "ce5sop4dm5w4i1h2",
     }),
     HttpClientModule,
+    TodoModule,
   ],
   providers: [AuthGuard, CadastroGuard, BAR_PROVIDERS],
   bootstrap: [AppComponent],
