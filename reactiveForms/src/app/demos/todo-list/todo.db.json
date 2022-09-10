@@ -10,13 +10,13 @@
       "id": 2,
       "nome": "Reunião com fornecedor",
       "finalizado": false,
-      "iniciado": true
+      "iniciado": false
     },
     {
       "id": 3,
       "nome": "Finalizar curso de Angular",
       "finalizado": false,
-      "iniciado": true
+      "iniciado": false
     },
     {
       "id": 4,
