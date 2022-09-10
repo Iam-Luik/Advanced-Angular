@@ -1,12 +1,16 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from "../../task";
+import { TasksService } from '../../todo.service';
 
 @Component({
-  selector: "todo-list",
-  templateUrl: "./todo-list.component.html",
-  styleUrls: ["todo-list.component.css"],
+  selector: 'todo-list',
+  templateUrl: './todo-list.component.html',
+  styleUrls: ['todo-list.component.css']  
 })
 export class ToDoListComponent {
+
+  constructor(private tasksService: TasksService){}
+
   @Input()
   list: Task[];
 
@@ -17,26 +21,30 @@ export class ToDoListComponent {
     const task = this.list[index];
 
     switch (acao) {
-      case "iniciar":
+      case 'iniciar':
         task.finalizado = false;
         task.iniciado = true;
-        break;
-      case "finalizar":
+        break; 
+      case 'finalizar':
         task.finalizado = true;
         task.iniciado = false;
-        break;
-      case "retomar":
+        break; 
+      case 'retomar':
         task.finalizado = false;
         task.iniciado = true;
-        break;
-      case "cancelar":
+        break; 
+      case 'cancelar':
         task.finalizado = false;
         task.iniciado = false;
-        break;
+        break;      
     }
 
     this.toggle.emit({
-      task: { ...task },
-    });
+      task: { ...task }
+    });    
+  }
+
+  excluir(id: number) {
+    this.tasksService.remover(id);
   }
 }

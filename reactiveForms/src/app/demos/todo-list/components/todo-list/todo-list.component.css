@@ -12,34 +12,9 @@
     margin-bottom: 0.0rem !important;
 }
 
-.task-list__finalizado {
-    width: 22px;
-    height: 20px;
-    position: absolute;
-    right: 20px;
+.task-list-icon {
+    padding: 5px;
     cursor: pointer;
-    background: url(/assets/parar_ativo.png) no-repeat 0 0;
-    background-size: 20px 20px;
-}
-
-.task-list__iniciado {
-    width: 22px;
-    height: 20px;
-    position: absolute;
-    right: 20px;
-    cursor: pointer;
-    background: url(/assets/iniciar_ativo.png) no-repeat 0 0;
-    background-size: 20px 20px;
-}
-
-.task-list__retroceder {
-    width: 22px;
-    height: 20px;
-    position: absolute;
-    right: 50px;
-    cursor: pointer;
-    background: url(/assets/retroceder_ativo.png) no-repeat 0 0;
-    background-size: 20px 20px;
 }
 
 .task-list li {

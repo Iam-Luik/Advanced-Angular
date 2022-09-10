@@ -1,31 +1,31 @@
-import { BehaviorSubject, Observable } from "rxjs";
-import { Task } from "./task";
+import { Task } from './task';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from "rxjs/operators";
 
 export interface State {
-  todolist: Task[];
+    todolist: Task[]
 }
 
 const state: State = {
-  todolist: [],
+    todolist: []
 };
 
 export class Store {
-  private subject = new BehaviorSubject<State>(state);
-  private store = this.subject.asObservable();
+    private subject = new BehaviorSubject<State>(state);
+    private store = this.subject.asObservable();
 
-  get value() {
-    return this.subject.value;
-  }
+    get value() {
+        return this.subject.value;
+    }
 
-  public getTodoList(): Observable<Task[]> {
-    return this.store.pipe(map((store) => store.todolist));
-  }
+    public getTodoList(): Observable<Task[]> {
+        return this.store
+            .pipe(map(store => store.todolist));
+    }
 
-  set(name: string, state: any) {
-    this.subject.next({
-      ...this.value,
-      [name]: state,
-    });
-  }
+    set(name: string, state: any) {
+        this.subject.next({
+            ...this.value, [name]: state
+        });
+    }
 }

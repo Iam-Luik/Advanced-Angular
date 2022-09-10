@@ -1,27 +1,28 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
 import { map } from "rxjs/operators";
 
-import { TasksService } from "../../todo.service";
-import { Store } from "../../todo.store";
+import { TasksService } from '../../todo.service';
+import { Store } from '../../todo.store';
 
 @Component({
-  selector: "tasks-finalizadas",
-  templateUrl: "./tasks-finalizadas.component.html",
+  selector: 'tasks-finalizadas',
+  templateUrl: './tasks-finalizadas.component.html'
 })
 export class TasksFinalizadasComponent implements OnInit {
+
   finalizados$: Observable<any[]>;
 
-  constructor(private taskService: TasksService, private store: Store) {}
+  constructor(private tasksService: TasksService, private store: Store) { }
 
   ngOnInit() {
-    this.finalizados$ = this.store
-      .getTodoList()
-      .pipe(map((todolist) => todolist.filter((task) => task.finalizado)));
+    this.finalizados$ = this.store.getTodoList()      
+      .pipe(
+        map(todolist => todolist.filter(task => task.finalizado)));
   }
 
   onToggle(event) {
-    this.taskService.toggle(event);
+    this.tasksService.toggle(event);
   }
 }
